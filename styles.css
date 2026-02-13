@@ -4,6 +4,9 @@ body{
     margin:0;
     font-family: "Microsoft Sans Serif", system-ui, Arial, sans-serif;
     color: #fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
 nav{
@@ -208,4 +211,213 @@ h1{
     border-radius:30px; 
     text-decoration:none; 
     box-shadow:0 6px 18px rgba(73,131,240,0.25); }
+
+
+#abilities{
+    padding:60px 20px 80px 20px;
+    color:#111;
+    background:transparent;
+}
+#abilities h2{
+    font-size:32px;
+    color:#000;
+    text-align:center;
+    margin-top:24px;
+    margin-bottom:18px;
+}
+.abilities-columns{
+    max-width:1100px;
+    margin: 0 auto;
+    display:flex;
+    gap:40px;
+    align-items:stretch;
+    justify-content:center;
+}
+
+.abilities-card{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    padding:28px 22px 36px 22px;
+    flex:1 1 48%;
+    min-width:320px;
+}
+
+.abilities-card h3{
+    text-align:center;
+    font-size:20px;
+    margin:12px 0 18px 0;
+    text-decoration:underline;
+}
+
+.abilities-icons{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:22px 34px;
+    align-items:center;
+    justify-items:center;
+    padding-top:6px;
+    grid-auto-rows: 80px; 
+    min-height: 340px;   
+    align-content: center; 
+}
+
+.abilities__icon{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    display:block;
+}
+
+.education{
+    padding:60px 20px 80px 20px;
+    color:#111;
+    background:#f5f5f5;
+}
+
+.education__title{
+    font-size:32px;
+    color:#000;
+    text-align:center;
+    margin-top:24px;
+    margin-bottom:32px;
+    text-decoration:underline;
+}
+
+.education__container{
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.education__group{
+    margin-bottom:40px;
+}
+
+.education__subtitle{
+    font-size:24px;
+    color:#000;
+    margin-bottom:18px;
+}
+
+.education__card{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    padding:20px 24px;
+    transition:transform 0.2s;
+}
+
+.education__card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 24px rgba(0,0,0,0.12);
+}
+
+.education__card-title{
+    color:#4983F0;
+    font-size:16px;
+    margin:0 0 10px 0;
+    line-height:1.3;
+}
+
+.education__card-role,
+.education__card-org{
+    font-size:14px;
+    color:#111;
+    margin:6px 0;
+    font-weight:500;
+}
+
+.education__card-period,
+.education__card-topic{
+    font-size:14px;
+    color:#666;
+    margin:4px 0 0 0;
+}
+
+.education__certifications{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+}
+
+.education__cta{
+    display:flex;
+    justify-content:center;
+    margin-top:28px;
+}
+
+.education__link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#4983F0;
+    color:#fff;
+    padding:12px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:16px;
+    box-shadow:0 6px 18px rgba(73,131,240,0.25);
+}
+
+.education__link:hover{
+    background:#3a6fd0;
+}
+
+.education__link-icon{
+    width:20px;
+    height:20px;
+    filter:brightness(0) invert(1);
+}
+
+.footer{
+    background:#1a1a1a;
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    position:relative;
+    width:100%;
+    box-sizing:border-box;
+    margin-top:auto;
+}
+
+.footer__container{
+    max-width:1100px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.footer__name{
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+    color:#fff;
+    letter-spacing:0.5px;
+}
+
+.footer__contact{
+    font-size:15px;
+    margin:0;
+    color:#ccc;
+}
+
+.footer__email{
+    color:#4983F0;
+    text-decoration:none;
+    transition:color 0.2s;
+}
+
+.footer__email:hover{
+    color:#6fa3ff;
+    text-decoration:underline;
+}
+
+.footer__copyright{
+    font-size:13px;
+    color:#888;
+    margin:8px 0 0 0;
+    font-weight:300;
+}
 
