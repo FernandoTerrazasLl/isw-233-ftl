@@ -57,8 +57,10 @@ Se realiza debido a la practica de la materia de aplicaciones web con tecnologia
 
 - HTML5 Puro
 - CSS3 Puro
+--
+## Figma
 
----
+https://www.figma.com/design/MYUHpMgy4Jet7CjY1krfsu/Curriculum?node-id=0-1&m=dev
 
 ## Autor
 
