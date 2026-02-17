@@ -11,17 +11,21 @@
 
     <section id="home">
         <nav>
-        <p id="nav__name">Fernando Terrazas Llanos</p>
-        <a href="#home" class="nav__link">Home</a>
-        <a href="#about" class="nav__link">About me</a>
-        <a href="#projects" class="nav__link">Projects</a>
-        <a href="#abilities" class="nav__link">Abilities</a>
-        <a href="#education" class="nav__link">Education</a>
+            <p id="nav__name">Fernando Terrazas Llanos</p>
+            <div id="nav__links">
+                <a href="#home" class="nav__link">Home</a>
+                <a href="#about" class="nav__link">About me</a>
+                <a href="#projects" class="nav__link">Projects</a>
+                <a href="#abilities" class="nav__link">Abilities</a>
+                <a href="#education" class="nav__link">Education</a>
+            </div>                                                  
         </nav>
-        <h1>Fernando Terrazas Llanos</h1>
-        <p id="home__profession">Software Engineering Student</p>
-        <p class="home__phrase">If you can imagine it, you can program it</p>
-        <p class="home__phrase">Transforming business ideas in digital systems</p>
+        <div id="home__intro">
+            <h1>Fernando Terrazas Llanos</h1>
+            <p id="home__intro__profession">Software Engineering Student</p>
+            <p class="home__intro__phrase">If you can imagine it, you can program it</p>
+            <p class="home__intro__phrase">Transforming business ideas in digital systems</p>
+        </div>
         <div id="home__social-media">
             <a href="https://github.com/FernandoTerrazasLl" id="home__social-media__github">
                     <img src="img/iconoGithubMin.png" alt="GitHub icon">
@@ -33,6 +37,7 @@
                 <img src="img/iconoMailMin.png" alt="Email icon">
             </a>
         </div>
+
         <div id="home__contact">
             <a id="home__contact__link" href="mailto:terrazasllanosfernando@gmail.com">Contact Me</a>
         </div>
@@ -40,22 +45,23 @@
     
     <section id="about">
         <h2 id="about__title">About Me</h2>
-            <div class="about-content">
-                <img src="img/imagenFernando.png" alt="Profile photo" id="about__profile-photo">
-                <div class="about-text">
-                    <p id="about__description">A 21-year-old scholarship student at the Bolivian Catholic University, deeply passionate about technology and innovation. Certified with a B2 English proficiency and with a solid foundation in C++, Spring Boot, .Net, Angular, SQL, and Scrum. I am committed to continuously acquiring new skills that enhance both my professional expertise and personal growth.</p>
-                </div>
+
+        <div id="about__content">
+            <img src="img/imagenFernando.png" alt="Profile photo" id="about__profile-photo">
+            <div id="about__text">
+                <p id="about__description">A 21-year-old scholarship student at the Bolivian Catholic University, deeply passionate about technology and innovation. Certified with a B2 English proficiency and with a solid foundation in C++, Spring Boot, .Net, Angular, SQL, and Scrum. I am committed to continuously acquiring new skills that enhance both my professional expertise and personal growth.</p>
             </div>
+        </div>
     </section>
 
     <section id="projects">
         <h2>Featured Projects</h2>
         <p>Projects that showcase my technical and creative skills.</p>
 
-        <div class="projects-grid">
-            <div class="project-card">
+        <div id="projects__container">
+            <div class="projects__container__project">
                 <img src="img/imagenMecaProyecto.png" alt="Mechatronics Project">
-                <div class="card-body">
+                <div class="projects__container__project__info">
                     <h4>Mechatronics Reservation Web App - UCB</h4>
                     <a href="https://github.com/FernandoTerrazasLl/Mecatronics-Equipment-Reservation-Web-App-UCB">
                         <img src="img/iconoGithubMinNegro.png" alt="GitHub icon"> Repository
@@ -63,9 +69,9 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="projects__container__project">
                 <img src="img/imagenArquitectura.png" alt="x86 Architecture Simulator Project">
-                <div class="card-body">
+                <div class="projects__container__project__info">
                     <h4>x86 Architecture Simulator - Visual Basic</h4>
                     <a href="https://github.com/FernandoTerrazasLl/Simulador-de-Arquitectura-x86">
                         <img src="img/iconoGithubMinNegro.png" alt="GitHub icon"> Repository
@@ -73,9 +79,9 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="projects__container__project">
                 <img src="img/imagenPasa.png" alt="Bus Reservation Project">
-                <div class="card-body">
+                <div class="projects__container__project__info">
                     <h4>Bolivia Bus Reservation Web App</h4>
                     <a href="https://github.com/FernandoTerrazasLl/PASA">
                         <img src="img/iconoGithubMinNegro.png" alt="GitHub icon"> Repository
@@ -84,17 +90,17 @@
             </div>
         </div>
 
-        <div class="projects-cta">
+        <div class="projects_btn-more-projects">
             <a href="https://github.com/FernandoTerrazasLl">View more projects</a>
         </div>
     </section>
 
     <section id="abilities">
         <h2>Technical Abilities</h2>
-        <div class="abilities-columns">
-            <div class="abilities-card">
+        <div class="abilities__columns">
+            <div class="abilities__columns__column">
                 <h3>Web</h3>
-                <div class="abilities-icons">
+                <div class="abilities__columns__column__icons">
                     <img src="img/iconoHtml.png" alt="HTML icon" class="abilities__icon">
                     <img src="img/iconoCss.png" alt="CSS icon" class="abilities__icon">
                     <img src="img/iconoJs.png" alt="JavaScript icon" class="abilities__icon">
@@ -108,9 +114,10 @@
                     <img src="img/iconoTeachableMachine.png" alt="Teachable Machine icon" class="abilities__icon">
                 </div>
             </div>
-            <div class="abilities-card">
+
+            <div class="abilities-columns__column">
                 <h3>Tools</h3>
-                <div class="abilities-icons">
+                <div class="abilities-columns__column__icons">
                     <img src="img/iconoFigma.png" alt="Figma icon" class="abilities__icon">
                     <img src="img/iconoGit.png" alt="Git icon" class="abilities__icon">
                     <img src="img/iconoGithub.png" alt="GitHub icon" class="abilities__icon">
@@ -125,68 +132,73 @@
         </div>
     </section>
 
-    <section id="education" class="education">
-        <h2 class="education__title">Educations and Certifications</h2>
-        
+    <section id="education">
+        <h2 id="education__title">Educations and Certifications</h2>
+
         <div class="education__container">
-            <div class="education__group">
-                <h3 class="education__subtitle">Education</h3>
-                <div class="education__card">
-                    <h4 class="education__card-title">Catholic Bolivian University</h4>
-                    <p class="education__card-role">Software Engineer</p>
-                    <p class="education__card-period">2023-2028</p>
+            <div class="education__container__group">
+                <h3 class="education__container__group__title">Education</h3>
+                <div class="education__container__group__info">
+                    <h4 class="education__container__group__info__card-title">Catholic Bolivian University</h4>
+                    <p class="education__container__group__info__card-role">Software Engineer</p>
+                    <p class="education__container__group__info__card-period">2023-2028</p>
                 </div>
             </div>
 
-            <div class="education__group">
-                <h3 class="education__subtitle">Profesional Certifications</h3>
-                <div class="education__certifications">
-                    <div class="education__card">
-                        <h4 class="education__card-title">Harvard Aspire Institute Leadership</h4>
-                        <p class="education__card-org">Aspire Institute</p>
-                        <p class="education__card-topic">Leadership</p>
+            <div class="education__container__group">
+                <h3 class="education__container__group__title">Profesional Certifications</h3>
+
+                <div class="education__container__group__certifications">
+                    <div class="education__container__group__certifications__card">
+                        <h4 class="education__container__group__certifications__card__title">Harvard Aspire Institute Leadership</h4>
+                        <p class="education__container__group__certifications__card__org">Aspire Institute</p>
+                        <p class="education__container__group__certifications__card__topic">Leadership</p>
                     </div>
-                    <div class="education__card">
-                        <h4 class="education__card-title">ISTQB Foundation Level</h4>
-                        <p class="education__card-org">JB ENTERPRISE GROUP</p>
-                        <p class="education__card-topic">Quality Assurance · Software Testing</p>
+
+                    <div class="education__container__group__certifications__card">
+                        <h4 class="education__container__group__certifications__card__title">ISTQB Foundation Level</h4>
+                        <p class="education__container__group__certifications__card__org">JB ENTERPRISE GROUP</p>
+                        <p class="education__container__group__certifications__card__topic">Quality Assurance · Software Testing</p>
                     </div>
-                    <div class="education__card">
-                        <h4 class="education__card-title">Computer Vision for Industrial Inspection</h4>
-                        <p class="education__card-org">NVIDIA</p>
-                        <p class="education__card-topic">IA · Computer Vision</p>
+
+                    <div class="education__container__group__certifications__card">
+                        <h4 class="education__container__group__certifications__card__title">Computer Vision for Industrial Inspection</h4>
+                        <p class="education__container__group__certifications__card__org">NVIDIA</p>
+                        <p class="education__container__group__certifications__card__topic">IA · Computer Vision</p>
                     </div>
-                    <div class="education__card">
-                        <h4 class="education__card-title">Oracle Next Education Back-end</h4>
-                        <p class="education__card-org">Alura Latam</p>
-                        <p class="education__card-topic">Java · Backend</p>
+
+                    <div class="education__container__group__certifications__card">
+                        <h4 class="education__container__group__certifications__card__title">Oracle Next Education Back-end</h4>
+                        <p class="education__container__group__certifications__card__org">Alura Latam</p>
+                        <p class="education__container__group__certifications__card__topic">Java · Backend</p>
                     </div>
-                    <div class="education__card">
-                        <h4 class="education__card-title">Lean Six Sigma White Belt Certification</h4>
-                        <p class="education__card-org">Opex Online Academy</p>
-                        <p class="education__card-topic">Agile Methodologies · Project Management</p>
+
+                    <div class="education__container__group__certifications__card">
+                        <h4 class="education__container__group__certifications__card__title">Lean Six Sigma White Belt Certification</h4>
+                        <p class="education__container__group__certifications__card__org">Opex Online Academy</p>
+                        <p class="education__container__group__certifications__card__topic">Agile Methodologies · Project Management</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="education__cta">
-            <a href="https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/" class="education__link">
-                <img src="img/iconoLinkedinMin.png" alt="LinkedIn icon" class="education__link-icon">
+        <div id="education__btn-more-info">
+            <a href="https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/" id="education__btn-more-info__link">
+                <img src="img/iconoLinkedinMin.png" alt="LinkedIn icon" id="education__btn-more-info__link-icon">
                 More information
             </a>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer__container">
-            <p class="footer__name">Fernando Terrazas Llanos</p>
-            <p class="footer__contact">Contact: 
-                <a href="mailto:terrazasllanosfernando@gmail.com" class="footer__email">
+    <footer id="footer">
+        <div id="footer__container">
+            <p id="footer__container__name">Fernando Terrazas Llanos</p>
+            <p id="footer__container__contact">Contact: 
+                <a href="mailto:terrazasllanosfernando@gmail.com" id="footer__container__contact__email">
                     terrazasllanosfernando@gmail.com
                 </a>
             </p>
-            <p class="footer__copyright">© 2026 All rights reserved</p>
+            <p id="footer__container__copyright">© 2026 All rights reserved</p>
         </div>
     </footer>
 </body>
