@@ -1,0 +1,27 @@
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h2 {
+    font-size:3rem;
+}
+#about__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0rem 5rem 5rem 5rem;
+}
+#about__content__photo {
+    width: 40%;
+    height:auto;
+}
+#about__content__text {
+    width: 40%;
+}
+p {
+    font-size: 1.5rem;
+}
