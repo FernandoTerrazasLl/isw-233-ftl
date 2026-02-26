@@ -1,7 +1,7 @@
 #home {
     display: flex;
     flex-direction: column;
-    background-image: url("/img/imagenHome.png");
+    background-image: url("../../img/imagenHome.png"); /*OJO CON ESTO*/
     height: 100vh;
     align-items: center;
     padding:1rem;

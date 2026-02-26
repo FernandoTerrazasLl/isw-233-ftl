@@ -1,10 +1,13 @@
-@import url(sections/abilities/abilities.css);
-@import url(sections/about/about.css);
-@import url(sections/projects/projects.css);
-@import url(sections/education/education.css);
-@import url(sections/footer/footer.css);
-@import url(sections/home/home.css);
+@import url(vendor/normalize.css);
 
+@import url(blocks/abilities/abilities.css);
+@import url(blocks/about/about.css);
+@import url(blocks/projects/projects.css);
+@import url(blocks/education/education.css);
+@import url(blocks/footer/footer.css);
+@import url(blocks/home/home.css);
+
+/*Esto cuenta como global? PREGUNTA*/
 body {
     margin: 0;
     padding: 0;

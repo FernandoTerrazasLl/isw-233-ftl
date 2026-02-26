@@ -12,11 +12,13 @@ Sitio web de CV personal desarrollado con HTML5 y CSS3 puro. Presenta informaci�
 ├── index.html          # Archivo HTML principal
 ├── styles.css          # Hoja de estilos CSS
 ├── README.md           # Documentación
-└── img/                # Recursos visuales (imágenes e iconos)
+|── img/                # Recursos visuales (imágenes e iconos)
+|-- vendor/
+|-- blocks/
 ```
 
 **Secciones del sitio:**
-- `<nav>`: Navegación principal
+- nav: Navegación principal
 - home: Hero con presentación
 - about: Biografía
 - projects: Proyectos destacados
@@ -28,16 +30,16 @@ Sitio web de CV personal desarrollado con HTML5 y CSS3 puro. Presenta informaci�
 
 ## ¿Qué se Hace?
 
-### Funcionalidades
+### Blocks
 
 Pagina de avance de CV para la practica de HTML y Css.
 
-1. **Home**: Nombre, profesión, frases motivacionales, enlaces a redes sociales, botón de contacto
-2. **Navegación**: Barra fija sobre el hero con enlaces a secciones
-3. **About Me**: Foto de perfil + descripción en dos columnas
-4. **Proyectos**: Tarjetas en grilla 3x1 con imagen, título y enlace a GitHub
-5. **Habilidades**: Dos tarjetas (Web/Tools) con iconos en grilla 3 columnas
-6. **Educación**: Lista de formación académica y certificaciones
+1. **Home**: Nombre, profesión, frases motivacionales, enlaces a redes sociales, botón de contacto y navbar
+2. **About Me**: Foto de perfil + descripción en dos columnas
+3. **Proyectos**: Tarjetas en grilla 3x1 con imagen, título y enlace a GitHub
+4. **Habilidades**: Dos tarjetas (Web/Tools) con iconos en grilla 3 columnas
+5. **Educación**: Lista de formación académica y certificaciones
+6. **Footer** Contiene informacion del estudiante de contacto
 
 ---
 
@@ -61,6 +63,10 @@ Se realiza debido a la practica de la materia de aplicaciones web con tecnologia
 ## Figma
 
 https://www.figma.com/design/MYUHpMgy4Jet7CjY1krfsu/Curriculum?node-id=0-1&m=dev
+
+## IA Usada
+
+- https://gemini.google.com/share/d24d949e604f
 
 ## Autor
 
