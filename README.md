@@ -62,6 +62,10 @@ Se realiza debido a la practica de la materia de aplicaciones web con tecnologia
 
 https://www.figma.com/design/MYUHpMgy4Jet7CjY1krfsu/Curriculum?node-id=0-1&m=dev
 
+## IA Usada
+
+- https://gemini.google.com/share/d24d949e604f
+
 ## Autor
 
 **Fernando Terrazas Llanos**  
