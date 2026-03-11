@@ -1,0 +1,93 @@
+.contact-me{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-image: url("../../img/fondoTech.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.contact-me__title{
+    font-size: 2.5rem;
+    color: #0249CC;
+
+}
+.contact-me__form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 80%;
+}
+
+.contact-me__name{
+    width: 100%;
+}
+.contact-me__name-title{
+    color: #0249CC;
+    font-size: 1.5rem;
+}
+.contact-me__name-input{
+    width: 100%;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+.contact-me__email-title{
+    color: #0249CC;
+    font-size: 1.5rem;
+}
+.contact-me__email-input{
+    width: 90%;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.contact-me__phone-title{
+    color: #0249CC;
+    font-size: 1.5rem;
+}
+.contact-me__phone-input{
+    width: 100%;
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+.contact-me__email,
+.contact-me__phone{
+    flex: 1 1 45%;
+}
+.contact-me__message{
+    width: 100%;
+}
+.contact-me__message-title{
+    color: #0249CC;
+    font-size: 1.5rem;
+}
+.contact-me__message-input{
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.contact-me__send{
+    width: 20rem;
+    padding: 0.5rem;
+    background-color: #0249CC;
+    color: #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin: 0 auto;
+    font-size: 1rem;
+}

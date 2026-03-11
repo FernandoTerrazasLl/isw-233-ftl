@@ -1,81 +1,85 @@
-#home {
+.home {
     display: flex;
     flex-direction: column;
     background-image: url("../../img/imagenHome.png"); /*OJO CON ESTO*/
     height: 100vh;
     align-items: center;
-    padding:1rem;
 }
 
-nav {
+.home__nav {
     height: 5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-#home__nav__name {
+.home__nav-name {
     color:#fff;
     font-size: 1.5rem;
     padding:2rem;
 }
-#home__nav__links {
+.home__nav-links {
     display: flex;
     gap: 2rem;
     padding: 2rem;
 }
-.home__nav__links__link {
+.home__nav-link {
     color: #fff;
     font-size: 1.5rem;
 }
-h1 {
-    color:#fff;
-    font-size: 6rem;
-    margin: 1rem;
-}
-#home__background {
+
+.home__background {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 80vh;
 }
-#home__background__intro{
+.home__intro{
     display:flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
 }
-#home__background__intro__profession {
+.home__profession {
     color:#fff;
     font-size: 3rem;
     margin: 1rem;
 }
-.home__background__intro__phrase {
+.home__phrase {
     color:#fff;
     font-size: 2rem;
     margin: 1rem;
 }
-#home__background__social-media {
+.home__social-media {
     display:flex;
     flex-direction: row;
     gap:2rem;
+    margin: 2rem;
 }
-#home__background__social-media a{
+.home__social-link{
     display:flex;
-    width:5rem;
-    height:5rem;
+    width:3rem;
+    height:3rem;
 }
-#home__background__contact {
+.home__contact {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #4983F0;
     margin-top: 1rem;
-    width: 6rem;
-    height: 2rem;
+    width: 10rem;
+    height: 3rem;
     border-radius: 32px;
 }
-#home__background__contact__link {
+.home__contact-link {
     color:#fff;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.home__intro h1 {
+    color:#fff;
+    font-size: 6rem;
+    margin: 1rem;
 }
