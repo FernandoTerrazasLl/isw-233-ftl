@@ -1,3 +1,5 @@
+import Storage from "../../services/Storage.js";
+
 let blogsList = [];
 
 const renderBlogs = (blogs) => {
@@ -5,16 +7,32 @@ const renderBlogs = (blogs) => {
     if (!container) return;
 
     container.innerHTML = blogs
-        .map(
-            (blog) => `
+        .map((blog) => {
+            const isFav = Storage.isFavorite(blog.id);
+            const star = isFav ? "★" : "☆";
+
+            return `
             <div class="blog__article">
                 <img src="${blog.image}" alt="${blog.title}" class="blog__article-image">
                 <div class="blog__article-info">
                     <h4 class="blog__article-title">${blog.title}</h4>
+                    <button class="blog__favorite" data-id="${blog.id}" 
+                        style="font-size: 24px; background: none; border: none; cursor: pointer;">
+                        ${star}
+                    </button>
                 </div>
-            </div>`
-        )
+                
+            </div>`;
+        })
         .join("\n");
+
+    container.querySelectorAll(".blog__favorite").forEach((button) => {
+        button.addEventListener("click", () => {
+            const id = Number(button.dataset.id);
+            const isFav = Storage.toggleFavorite(id);
+            button.textContent = isFav ? "★" : "☆";
+        });
+    });
 };
 
 export const init_blogs = async () => {

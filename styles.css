@@ -15,9 +15,3 @@ body {
     padding: 0;
     
 }
-
-.home__nav-link.is-active,
-.footer__link.is-active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
