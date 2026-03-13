@@ -1,9 +1,8 @@
-export const init_blogs = async () => {
+let blogsList = [];
+
+const renderBlogs = (blogs) => {
     const container = document.querySelector(".blog__container");
     if (!container) return;
-    
-    const res = await fetch("./data/blogs.json");
-    const blogs = await res.json();
 
     container.innerHTML = blogs
         .map(
@@ -16,4 +15,20 @@ export const init_blogs = async () => {
             </div>`
         )
         .join("\n");
+};
+
+export const init_blogs = async () => {
+    const res = await fetch("./data/blogs.json");
+    blogsList = await res.json();
+    renderBlogs(blogsList);
+};
+
+export const filterBlogsByCategory = (category) => {
+    if (!category) {
+        renderBlogs(blogsList);
+        return;
+    }
+
+    const filtered = blogsList.filter((post) => post.category === category);
+    renderBlogs(filtered);
 };
