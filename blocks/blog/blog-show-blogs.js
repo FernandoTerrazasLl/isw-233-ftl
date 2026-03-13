@@ -1,17 +1,30 @@
 import Storage from "../../services/Storage.js";
+import { favoriteMixin } from "./favorite-mixin.js";
+import { categorySubject } from "./category-subject.js";
 
 let blogsList = [];
+let currentCategory = null;
 
-const renderBlogs = (blogs) => {
-    const container = document.querySelector(".blog__container");
-    if (!container) return;
+const applyCategoryFilter = (category) => {
+    currentCategory = category || null;
+    const filtered = currentCategory
+        ? blogsList.filter((post) => post.category === currentCategory)
+        : blogsList;
 
-    container.innerHTML = blogs
-        .map((blog) => {
-            const isFav = Storage.isFavorite(blog.id);
-            const star = isFav ? "★" : "☆";
+    renderer.render(filtered);
+};
 
-            return `
+class BlogRenderer {
+    render(blogs) {
+        const container = document.querySelector(".blog__container");
+        if (!container) return;
+
+        container.innerHTML = blogs
+            .map((blog) => {
+                const isFav = Storage.isFavorite(blog.id);
+                const star = isFav ? "★" : "☆";
+
+                return `
             <div class="blog__article">
                 <img src="${blog.image}" alt="${blog.title}" class="blog__article-image">
                 <div class="blog__article-info">
@@ -21,32 +34,23 @@ const renderBlogs = (blogs) => {
                         ${star}
                     </button>
                 </div>
-                
             </div>`;
-        })
-        .join("\n");
+            })
+            .join("\n");
 
-    container.querySelectorAll(".blog__favorite").forEach((button) => {
-        button.addEventListener("click", () => {
-            const id = Number(button.dataset.id);
-            const isFav = Storage.toggleFavorite(id);
-            button.textContent = isFav ? "★" : "☆";
-        });
-    });
-};
+        this.attachFavoriteHandlers(); // mixin
+    }
+}
+Object.assign(BlogRenderer.prototype, favoriteMixin);
+
+const renderer = new BlogRenderer();
 
 export const init_blogs = async () => {
     const res = await fetch("./data/blogs.json");
     blogsList = await res.json();
-    renderBlogs(blogsList);
+
+    categorySubject.addObserver(applyCategoryFilter);
+
+    renderer.render(blogsList);
 };
 
-export const filterBlogsByCategory = (category) => {
-    if (!category) {
-        renderBlogs(blogsList);
-        return;
-    }
-
-    const filtered = blogsList.filter((post) => post.category === category);
-    renderBlogs(filtered);
-};

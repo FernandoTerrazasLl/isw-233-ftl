@@ -1,4 +1,6 @@
-const renderCategories = (categories, filtrarPorCategoria) => {
+import { categorySubject } from "./category-subject.js";
+
+const renderCategories = (categories) => {
     const container = document.querySelector(".blog__categories-list");
     if (!container) return;
 
@@ -15,12 +17,12 @@ const renderCategories = (categories, filtrarPorCategoria) => {
 
     container.querySelectorAll(".blog__category").forEach((button) => {
         button.addEventListener("click", () => {
-            filtrarPorCategoria(button.dataset.category);
+            categorySubject.notifyObservers(button.dataset.category);
         });
     });
 };
 
-export const initCategories = async (filterBlogsByCategory) => {
+export const initCategories = async () => {
     const button = document.querySelector(".blog__categories-button");
     const container = document.querySelector(".blog__categories-list");
     if (!button || !container) return;
@@ -33,7 +35,7 @@ export const initCategories = async (filterBlogsByCategory) => {
         if (!data_categories) {
             const res = await fetch("./data/categories.json");
             data_categories = await res.json();
-            renderCategories(data_categories, filterBlogsByCategory);
+            renderCategories(data_categories);
         }
 
         container.style.display = container.style.display === "none" ? "flex" : "none";

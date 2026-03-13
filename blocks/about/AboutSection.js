@@ -1,0 +1,29 @@
+const template = document.createElement("template");
+template.innerHTML = `
+<section class="about">
+    <h2 class="about__title">About Me</h2>
+
+    <div class="about__content">
+        <div class="about__info">
+            <div class="about__images">
+                <img src="img/imagenFernando.png" alt="Profile photo" class="about__photo">
+                <img src="img/aboutMeFondoDePersona.png" alt="Background image" class="about__fernando-bg">
+            </div>
+            <p class="about__image-description about__image-name">Fernando Terrazas Llanos</p>
+            <p class="about__image-description">Aspiring Backend Developer Engineer</p>
+        </div>
+        <div class="about__text">
+            <p class="about__description">A scholarship student at the Bolivian Catholic University, deeply passionate about technology and innovation. Certified with a B2 English TOEFL proficiency. I am committed to continuously acquiring new skills that enhance both my professional expertise and personal growth.</p>
+        </div>
+    </div>
+</section>
+`;
+
+class AboutSection extends HTMLElement {
+    constructor() {
+        super();
+        this.appendChild(template.content.cloneNode(true));
+    }
+}
+
+customElements.define("about-section", AboutSection);
