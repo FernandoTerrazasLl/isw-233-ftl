@@ -6,6 +6,7 @@
     <meta name="description" content="CV of Fernando Terrazas Llanos — Software Engineering student. Projects, skills and contact.">
     <title>CV Fernando Terrazas Llanos</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="index.js" defer></script>
 </head>
 <body>
 
@@ -13,12 +14,12 @@
         <nav class="home__nav">
             <p class="home__nav-name">Fernando Terrazas Llanos</p>
             <div class="home__nav-links">
-                <a href="#home" class="home__nav-link">Home</a>
-                <a href="#about" class="home__nav-link">About me</a>
-                <a href="#projects" class="home__nav-link">Projects</a>
-                <a href="#abilities" class="home__nav-link">Abilities</a>
-                <a href="#education" class="home__nav-link">Education</a>
-                <a href="#blog" class="home__nav-link">Blog</a>
+                <a href="/" class="home__nav-link">Home</a>
+                <a href="/about" class="home__nav-link">About me</a>
+                <a href="/projects" class="home__nav-link">Projects</a>
+                <a href="/abilities" class="home__nav-link">Abilities</a>
+                <a href="/education" class="home__nav-link">Education</a>
+                <a href="/blog" class="home__nav-link">Blog</a>
             </div>                                                  
         </nav>
         <div class="home__background">
@@ -212,9 +213,11 @@
                 <button class="blog__search-button">Search</button>
             </div>
             <button class="blog__categories-button">Categories</button>
+            <div class="blog__categories-list"></div>
         </div>
 
         <div class="blog__container">
+            <!-- esto lo voy a meter en js
             <div class="blog__article">
                 <img src="img/blogSEO.png" alt="SEO image" class="blog__article-image">
                 <div class="blog__article-info">
@@ -235,10 +238,11 @@
                     <h4 class="blog__article-title">Medium projects to add to your Repository</h4>
                 </div>
             </div>
+            -->
         </div>
     </section>
 
-    <section class="contact-me">
+    <section id="contact" class="contact-me">
         <h2 class="contact-me__title">Contact Me</h2>
         <form class="contact-me__form">
             <div class="contact-me__name">
@@ -277,15 +281,17 @@
                 </a>
             </div>
             <div class="footer__links">
-                <a href="#home" class="footer__link">Home</a>
-                <a href="#about" class="footer__link">About me</a>
-                <a href="#projects" class="footer__link">Projects</a>
-                <a href="#abilities" class="footer__link">Abilities</a>
-                <a href="#education" class="footer__link">Education</a>
-                <a href="#blog" class="footer__link">Blog</a>
+                <a href="/" class="footer__link">Home</a>
+                <a href="/about" class="footer__link">About me</a>
+                <a href="/projects" class="footer__link">Projects</a>
+                <a href="/abilities" class="footer__link">Abilities</a>
+                <a href="/education" class="footer__link">Education</a>
+                <a href="/blog" class="footer__link">Blog</a>
             </div>
             <p class="footer__copyright">© 2026 All rights reserved</p>
         </div>
     </footer>
+
+    <script type="module" src="Router.js"></script>
 </body>
 </html>

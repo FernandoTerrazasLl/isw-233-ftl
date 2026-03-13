@@ -8,9 +8,16 @@
 @import url(blocks/home/home.css);
 @import url(blocks/contact-me/contact-me.css);
 @import url(blocks/blog/blog.css);
+
 /*Esto cuenta como global? PREGUNTA*/
 body {
     margin: 0;
     padding: 0;
     
+}
+
+.home__nav-link.is-active,
+.footer__link.is-active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
