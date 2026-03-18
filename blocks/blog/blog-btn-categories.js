@@ -1,7 +1,7 @@
 import { categorySubject } from "./category-subject.js";
 
-const renderCategories = (categories) => {
-    const container = document.querySelector(".blog__categories-list");
+const renderCategories = (categories, rootNode = document) => {
+    const container = rootNode.querySelector(".blog__categories-list");
     if (!container) return;
 
     container.innerHTML = categories
@@ -22,9 +22,9 @@ const renderCategories = (categories) => {
     });
 };
 
-export const initCategories = async () => {
-    const button = document.querySelector(".blog__categories-button");
-    const container = document.querySelector(".blog__categories-list");
+export const initCategories = async (rootNode = document) => {
+    const button = rootNode.querySelector(".blog__categories-button");
+    const container = rootNode.querySelector(".blog__categories-list");
     if (!button || !container) return;
 
     let data_categories = null;
@@ -33,9 +33,9 @@ export const initCategories = async () => {
 
     button.addEventListener("click", async () => {
         if (!data_categories) {
-            const res = await fetch("./data/categories.json");
+            const res = await fetch("/data/categories.json");
             data_categories = await res.json();
-            renderCategories(data_categories);
+            renderCategories(data_categories, rootNode);
         }
 
         container.style.display = container.style.display === "none" ? "flex" : "none";

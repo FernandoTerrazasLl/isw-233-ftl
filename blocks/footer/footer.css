@@ -32,16 +32,6 @@
     width:4rem;
     height:4rem;
 }
-.footer__links{
-    display: flex;
-    align-items: center;
-    gap:2rem;
-    margin-bottom: 1rem;
-}
-.footer__link{
-    color: #fff;
-    font-size: 1rem;
-}
 .footer__copyright {
     font-size: 1rem;
     color: #fff;

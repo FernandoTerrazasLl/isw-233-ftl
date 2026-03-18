@@ -13,5 +13,9 @@
 body {
     margin: 0;
     padding: 0;
-    
+}
+
+main {
+    /* Cancel the sticky navbar layout gap so section backgrounds render behind the navbar */
+    margin-top: -5rem;
 }

@@ -1,35 +1,58 @@
 const Router = {
     routes: {
-        "/": "home",
-        "/about": "about",
-        "/projects": "projects",
-        "/abilities": "abilities",
-        "/education": "education",
-        "/blog": "blog",
-        "/contact": "contact"
+        "/": "home-section",
+        "/about": "about-section",
+        "/projects": "projects-section",
+        "/abilities": "abilities-section",
+        "/education": "education-section",
+        "/blog": "blog-section",
+        "/contact": "contact-section"
+    },
+
+    getAnchorFromEvent(event) {
+        const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+        for (const node of path) {
+            if (node instanceof HTMLAnchorElement) {
+                return node;
+            }
+        }
+        return null;
     },
 
     go(route, addToHistory = true) {
+        const routeString = this.routes[route] ? route : "/";
+
         if (addToHistory) {
-            history.pushState({ route }, "", route);
+            history.pushState({ route: routeString }, "", routeString);
         }
 
-        const sectionId = this.routes[route];
-        const section = sectionId ? document.getElementById(sectionId) : null;
-        if (!section) return;
+        const sectionId = this.routes[routeString];
+        if (!sectionId) return;
 
-        section.scrollIntoView();
+        const section = document.createElement(sectionId);
+
+        const main = document.querySelector(".main");
+        if (!main) return;
+
+        main.firstElementChild?.remove();
+        main.appendChild(section);
+
+        document.body.dataset.route = routeString;
+        window.scrollTo(0, 0);
     },
 
     init() {
-        document.querySelectorAll("a.home__nav-link, a.footer__link").forEach((link) => {
-            link.addEventListener("click", (event) => {
-                event.preventDefault();
-                const href = event.currentTarget.getAttribute("href");
-                this.go(href);
-            });
+        document.addEventListener("click", (event) => {
+            const anchor = this.getAnchorFromEvent(event);
+            if (!anchor) return;
+
+            const href = anchor.getAttribute("href");
+            if (!href || !href.startsWith("/")) return;
+
+            event.preventDefault();
+            this.go(href);
         });
-        //CUANDO APRETO EL BOTON DE ATRAS O ADELANTE DEL NAVEGADOR
+
         window.addEventListener("popstate", (event) => {
             const route = event.state?.route || window.location.pathname;
             this.go(route, false);

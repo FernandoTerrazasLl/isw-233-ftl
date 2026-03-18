@@ -3,21 +3,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0rem 5rem 5rem 5rem;
+    padding: 5rem 5rem 5rem 5rem;
     
     background-image: url('/img/fondoTech.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    height: 100vh;
 }
 .abilities__title {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color:#0249CC;
 }
 .abilities__column-title {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    color:#0249CC;
 }
 .abilities__columns {
     display: flex;

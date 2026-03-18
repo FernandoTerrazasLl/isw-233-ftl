@@ -3,29 +3,10 @@
     flex-direction: column;
     background-image: url("../../img/imagenHome.png"); /*OJO CON ESTO*/
     height: 100vh;
+    box-sizing: border-box;
+    padding-top: 5rem;
     align-items: center;
-}
-
-.home__nav {
-    height: 5rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.home__nav-name {
-    color:#fff;
-    font-size: 1.5rem;
-    padding:2rem;
-}
-.home__nav-links {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-}
-.home__nav-link {
-    color: #fff;
-    font-size: 1.5rem;
+    justify-content: center;
 }
 
 .home__background {
@@ -33,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
 }
 .home__intro{
     display:flex;

@@ -1,8 +1,8 @@
 import Storage from "../../services/Storage.js";
 
 const favoriteMixin = {
-    attachFavoriteHandlers(containerSelector = ".blog__container") {
-        const container = document.querySelector(containerSelector);
+    attachFavoriteHandlers(rootNode = document, containerSelector = ".blog__container") {
+        const container = rootNode.querySelector(containerSelector);
         if (!container) return;
 
         container.querySelectorAll(".blog__favorite").forEach((button) => {

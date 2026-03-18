@@ -4,6 +4,7 @@ import { categorySubject } from "./category-subject.js";
 
 let blogsList = [];
 let currentCategory = null;
+let currentRoot = document;
 
 const applyCategoryFilter = (category) => {
     currentCategory = category || null;
@@ -11,12 +12,12 @@ const applyCategoryFilter = (category) => {
         ? blogsList.filter((post) => post.category === currentCategory)
         : blogsList;
 
-    renderer.render(filtered);
+    renderer.render(filtered, currentRoot);
 };
 
 class BlogRenderer {
-    render(blogs) {
-        const container = document.querySelector(".blog__container");
+    render(blogs, rootNode = document) {
+        const container = rootNode.querySelector(".blog__container");
         if (!container) return;
 
         container.innerHTML = blogs
@@ -38,19 +39,27 @@ class BlogRenderer {
             })
             .join("\n");
 
-        this.attachFavoriteHandlers(); // mixin
+        this.attachFavoriteHandlers(rootNode); // mixin
     }
 }
 Object.assign(BlogRenderer.prototype, favoriteMixin);
 
 const renderer = new BlogRenderer();
 
-export const init_blogs = async () => {
-    const res = await fetch("./data/blogs.json");
-    blogsList = await res.json();
+export const init_blogs = async (rootNode = document) => {
+    currentRoot = rootNode;
+
+    if (!blogsList.length) {
+        const res = await fetch("/data/blogs.json");
+        blogsList = await res.json();
+    }
 
     categorySubject.addObserver(applyCategoryFilter);
 
-    renderer.render(blogsList);
+    const filtered = currentCategory
+        ? blogsList.filter((post) => post.category === currentCategory)
+        : blogsList;
+
+    renderer.render(filtered, currentRoot);
 };
 

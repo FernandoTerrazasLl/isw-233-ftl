@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0rem 5rem 5rem 5rem;
+    padding: 5rem 5rem 5rem 5rem;
 
     background-image: url('/img/fondoTech.png');
     background-size: cover;
