@@ -1,0 +1,27 @@
+{
+  "name": "isw-233-ftl",
+  "version": "1.0.0",
+  "description": "Sitio web de CV personal desarrollado con HTML5 y CSS3 puro. Presenta información profesional, proyectos, habilidades técnicas, educación y certificaciones de manera visual y accesible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoTerrazasLl/Curriculum-CV--Paginas-Web-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FernandoTerrazasLl/Curriculum-CV--Paginas-Web-1/issues"
+  },
+  "homepage": "https://github.com/FernandoTerrazasLl/Curriculum-CV--Paginas-Web-1#readme",
+  "devDependencies": {
+    "vite": "^8.0.0"
+  }
+}
