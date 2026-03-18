@@ -1,7 +1,12 @@
+import { initProjectHoverBlur } from "./ResizeObserverAnimation.js";
+
 class ProjectsSection extends HTMLElement {
     constructor() {
         super();
         this.root = this.attachShadow({ mode: "open" });
+        this._initialized = false;
+        this._cleanupHoverBlur = null;
+
         const styles = document.createElement("style");
         this.root.appendChild(styles);
         async function loadCSS() {
@@ -20,7 +25,16 @@ class ProjectsSection extends HTMLElement {
         this.root.appendChild(content);
     }
     connectedCallback() {
-        this.loadHTML();
+        if (this._initialized) return;
+        this._initialized = true;
+
+        this.loadHTML().then(() => {
+            this._cleanupHoverBlur = initProjectHoverBlur(this.root);
+        });
+    }
+    disconnectedCallback() {
+        this._cleanupHoverBlur?.();
+        this._cleanupHoverBlur = null;
     }
 }
 

@@ -33,6 +33,11 @@
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 2rem;
     background-color: #fff;
+    transition: filter 150ms ease, opacity 150ms ease;
+}
+.projects__project--blurred {
+    filter: blur(var(--project-blur, 4px));
+    opacity: var(--project-blur-opacity, 0.65);
 }
 .projects__project-image { 
     width: 100%;

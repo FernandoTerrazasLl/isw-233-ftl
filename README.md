@@ -775,7 +775,36 @@ que realice la busqueda mediante la categoria seleccionada. Es eficaz para un fu
 
 Se aplico para el observer del observer para el boton de categorias. Esto para que la lista de observadores sea la misma apra esta clase.
 
-### 
+## IA
+
+
+
+## Justificacion
+
+### Mutation Observer
+
+Se implemento en el navbar, en los links de cada seccion
+
+Resuelve un problema visual con el background del home. No se ve correctamente los links tengo el color del texto en azul. Por lo que cambio el color a blanco cuando esta en el home
+
+Al usar esta implementacion de la api mutation es mas escalable. Si pongo otro background en un futuro, podria necesitar otro color alternativo para el navbar. Por lo que escala en un futuro
+
+
+### Intersection Observer
+
+Se implemento en el footer
+
+Resuelve el problema de cargar el footer ademas de las demas sectiones de main, por lo que lo hace mas rapido
+
+Es mejor usar esta implementacion debido a que en un futuro las secciones se complicaran y necesitaremos ahorrar tiempo al inicio de la carga
+
+### Resize Observer
+
+Se implemento en proyecto section
+
+Agrega una funcionalidad de animacion a los proyectos para anadirle movimiento y UI
+
+Usar resize observer ayuda a poder anadirle animacion a los proyectos. Si en un futuro quisiera anadirle otra funcionalidad al pasar el mouse sobre un proyecto entonces seria mas sencillo.
 
 ## Autor
 

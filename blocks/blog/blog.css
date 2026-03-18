@@ -5,6 +5,7 @@
     background-attachment: fixed;
     padding: 5rem 5rem;
     align-items: center;
+    height: 100vh;
 }
 
 .blog__title {
