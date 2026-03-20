@@ -1,3 +1,5 @@
+import Handlebars from "handlebars";
+
 class NavbarSection extends HTMLElement {
     constructor() {
         super();
@@ -6,7 +8,9 @@ class NavbarSection extends HTMLElement {
         this.root.appendChild(styles);
 
         async function loadCSS() {
-            const request = await fetch("/blocks/navbar/navbar.css");
+            const request = await fetch("/blocks/navbar/navbar.css", {
+                headers: { Accept: "text/css" },
+            });
             const css = await request.text();
             styles.textContent = css;
         }
@@ -15,9 +19,25 @@ class NavbarSection extends HTMLElement {
 
     async loadHTML() {
         const request = await fetch("/blocks/navbar/navbar.html");
-        const html = await request.text();
+        const templateSource = await request.text();
+
+        const navbarData = {
+            links: [
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About me" },
+                { href: "/projects", label: "Projects" },
+                { href: "/abilities", label: "Abilities" },
+                { href: "/education", label: "Education" },
+                { href: "/contact", label: "Contact" },
+                { href: "/blog", label: "Blog" },
+            ],
+        };
+
+        const compiledTemplate = Handlebars.compile(templateSource);
+        const rendered = compiledTemplate(navbarData);
+
         const template = document.createElement("template");
-        template.innerHTML = html;
+        template.innerHTML = rendered;
         const content = template.content.cloneNode(true);
         this.root.appendChild(content);
     }

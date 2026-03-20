@@ -1,32 +1,51 @@
-class AbilitiesSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
+import BaseSection from "../shared/BaseSection.js";
 
-
-        async function loadCSS() {
-            const request = await fetch("/blocks/abilities/abilities.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+class AbilitiesSection extends BaseSection {
+    getCSSPath() {
+        return "/blocks/abilities/abilities.css";
     }
 
-    async loadHTML() {
-        const request = await fetch("/blocks/abilities/abilities.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+    getHTMLPath() {
+        return "/blocks/abilities/abilities.html";
     }
 
-    connectedCallback() {
-        this.loadHTML();
+    async getTemplateData() {
+        return {
+            title: "Technical Abilities",
+            columns: [
+                {
+                    title: "Web",
+                    icons: [
+                        { src: "/img/iconoHtml.png", alt: "HTML icon" },
+                        { src: "/img/iconoCss.png", alt: "CSS icon" },
+                        { src: "/img/iconoJs.png", alt: "JavaScript icon" },
+                        { src: "/img/iconoTypescript.png", alt: "TypeScript icon" },
+                        { src: "/img/iconoAngular.png", alt: "Angular icon" },
+                        { src: "/img/iconoDotNet.png", alt: ".NET icon" },
+                        { src: "/img/iconoSpringBoot.png", alt: "Spring Boot icon" },
+                        { src: "/img/iconoCPlusPlus.png", alt: "C++ icon" },
+                        { src: "/img/iconoSQLServer.png", alt: "SQL Server icon" },
+                        { src: "/img/iconoPostgreSQL.png", alt: "PostgreSQL icon" },
+                        { src: "/img/iconoTeachableMachine.png", alt: "Teachable Machine icon" },
+                    ],
+                },
+                {
+                    title: "Tools",
+                    icons: [
+                        { src: "/img/iconoFigma.png", alt: "Figma icon" },
+                        { src: "/img/iconoGit.png", alt: "Git icon" },
+                        { src: "/img/iconoGithub.png", alt: "GitHub icon" },
+                        { src: "/img/iconoVsCode.png", alt: "VS Code icon" },
+                        { src: "/img/iconoIntelliJ.png", alt: "IntelliJ icon" },
+                        { src: "/img/iconoPostman.png", alt: "Postman icon" },
+                        { src: "/img/iconoDocker.png", alt: "Docker icon" },
+                        { src: "/img/iconoAzureDevOps.png", alt: "Azure DevOps icon" },
+                        { src: "/img/iconoNotion.png", alt: "Notion icon" },
+                    ],
+                },
+            ],
+        };
     }
-    //Render si se requiere actualizar el contenido del bloque, por ejemplo
 }
 
 customElements.define("abilities-section", AbilitiesSection);

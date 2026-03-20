@@ -1,4 +1,4 @@
-export function observeMainIntersection({ onIntersect, threshold = 0.9, rootMargin = "0px" } = {}) {
+export function observeMainIntersection({ onIntersect, threshold = 0.1, rootMargin = "0px 0px 200px 0px" } = {}) {
   const main = document.querySelector("main");
   if (!main) return null;
 
@@ -7,7 +7,7 @@ export function observeMainIntersection({ onIntersect, threshold = 0.9, rootMarg
       const entry = entries[0];
       if (!entry) return;
 
-      if (entry.intersectionRatio >= threshold) {
+      if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
         obs.disconnect();
         onIntersect?.();
       }
@@ -15,7 +15,7 @@ export function observeMainIntersection({ onIntersect, threshold = 0.9, rootMarg
     {
       root: null,
       threshold,
-      rootMargin: "0px",
+      rootMargin,
     }
   );
 

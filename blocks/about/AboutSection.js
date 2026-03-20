@@ -1,29 +1,25 @@
-class AboutSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
+import BaseSection from "../shared/BaseSection.js";
 
-        async function loadCSS() {
-            const request = await fetch("/blocks/about/about.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+class AboutSection extends BaseSection {
+    getCSSPath() {
+        return "/blocks/about/about.css";
     }
-    async loadHTML() {
-        const request = await fetch("/blocks/about/about.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+
+    getHTMLPath() {
+        return "/blocks/about/about.html";
     }
-    connectedCallback() {
-        this.loadHTML();
+
+    async getTemplateData() {
+        return {
+            title: "About Me",
+            profilePhoto: "/img/imagenFernando.png",
+            backgroundImage: "/img/aboutMeFondoDePersona.png",
+            profileName: "Fernando Terrazas Llanos",
+            profileRole: "Aspiring Backend Developer Engineer",
+            description:
+                "A scholarship student at the Bolivian Catholic University, deeply passionate about technology and innovation. Certified with a B2 English TOEFL proficiency. I am committed to continuously acquiring new skills that enhance both my professional expertise and personal growth.",
+        };
     }
-    //Render si se requiere actualizar el contenido del bloque, por ejemplo
 }
 
 customElements.define("about-section", AboutSection);

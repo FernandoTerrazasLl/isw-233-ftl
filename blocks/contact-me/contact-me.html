@@ -1,22 +1,16 @@
 <section class="contact-me">
-    <h2 class="contact-me__title">Contact Me</h2>
+    <h2 class="contact-me__title">{{title}}</h2>
     <form class="contact-me__form">
-        <div class="contact-me__name">
-            <p class="contact-me__name-title">Full Name</p>
-            <input class="contact-me__name-input" type="text" placeholder="Your Name" required>
-        </div>
-        <div class="contact-me__email">
-            <p class="contact-me__email-title">Email</p>
-            <input class="contact-me__email-input" type="email" placeholder="Your Email" required>
-        </div>
-        <div class="contact-me__phone">
-            <p class="contact-me__phone-title">Phone</p>
-            <input class="contact-me__phone-input" type="text" placeholder="Your Phone" required>
-        </div>
+        {{#each fields}}
+            <div class="{{wrapperClass}}">
+                <p class="{{labelClass}}">{{label}}</p>
+                <input class="{{inputClass}}" type="{{inputType}}" placeholder="{{placeholder}}" required>
+            </div>
+        {{/each}}
         <div class="contact-me__message">
-            <p class="contact-me__message-title">Message</p>
-            <textarea class="contact-me__message-input" placeholder="Your Message" required></textarea>
+            <p class="contact-me__message-title">{{messageLabel}}</p>
+            <textarea class="contact-me__message-input" placeholder="{{messagePlaceholder}}" required></textarea>
         </div>
-        <button class="contact-me__send" type="submit">Submit</button>
+        <button class="contact-me__send" type="submit">{{submitLabel}}</button>
     </form>
 </section>

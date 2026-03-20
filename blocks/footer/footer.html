@@ -1,18 +1,14 @@
 <footer class="footer">
     <div class="footer__container">
-        <p class="footer__name">Fernando Terrazas Llanos</p>
-        <p class="footer__role">Aspiring Backend Engineer</p>
+        <p class="footer__name">{{name}}</p>
+        <p class="footer__role">{{role}}</p>
         <div class="footer__social-media">
-            <a href="https://github.com/FernandoTerrazasLl" class="footer__social-link">
-                <img src="img/iconoGithubMin.png" alt="GitHub icon">
-            </a>
-            <a href="https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/" class="footer__social-link">
-                <img src="img/iconoLinkedinMin.png" alt="LinkedIn icon">
-            </a>
-            <a href="mailto:terrazasllanosfernando@gmail.com" class="footer__social-link">
-                <img src="img/iconoMailMin.png" alt="Email icon">
-            </a>
+            {{#each socialLinks}}
+                <a href="{{href}}" class="footer__social-link">
+                    <img src="{{icon}}" alt="{{alt}}">
+                </a>
+            {{/each}}
         </div>
-        <p class="footer__copyright">© 2026 All rights reserved</p>
+        <p class="footer__copyright">{{copyright}}</p>
     </div>
 </footer>

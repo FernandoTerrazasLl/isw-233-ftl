@@ -1,37 +1,54 @@
+import BaseSection from "../shared/BaseSection.js";
 import { initProjectHoverBlur } from "./ResizeObserverAnimation.js";
+import Handlebars from "handlebars";
 
-class ProjectsSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        this._initialized = false;
-        this._cleanupHoverBlur = null;
+class ProjectsSection extends BaseSection {
+    async getTemplateData() {
+        return {
+            title: "Featured Projects",
+            subtitle: "Projects that showcase my technical and creative skills.",
+            repositoryLabel: "Repository",
+            moreProjectsUrl: "https://github.com/FernandoTerrazasLl",
+            moreProjectsLabel: "View more projects",
+            moreProjectsIcon: "/img/iconoGithubMin.png",
+            projects: [
+                {
+                    image: "/img/imagenMecaProyecto.png",
+                    imageAlt: "Mechatronics Project",
+                    title: "Mechatronics Reservation Web App - UCB",
+                    url: "https://github.com/FernandoTerrazasLl/Mecatronics-Equipment-Reservation-Web-App-UCB",
+                    repositoryIcon: "/img/iconoGithubMinNegro.png",
+                },
+                {
+                    image: "/img/imagenArquitectura.png",
+                    imageAlt: "x86 Architecture Simulator Project",
+                    title: "x86 Architecture Simulator - Visual Basic",
+                    url: "https://github.com/FernandoTerrazasLl/Simulador-de-Arquitectura-x86",
+                    repositoryIcon: "/img/iconoGithubMinNegro.png",
+                },
+                {
+                    image: "/img/imagenPasa.png",
+                    imageAlt: "Bus Reservation Project",
+                    title: "Bolivia Bus Reservation Web App",
+                    url: "https://github.com/FernandoTerrazasLl/PASA",
+                    repositoryIcon: "/img/iconoGithubMinNegro.png",
+                },
+            ],
+        };
+    }
 
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
-        async function loadCSS() {
-            const request = await fetch("/blocks/projects/projects.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+    getCSSPath() {
+        return "/blocks/projects/projects.css"
     }
-    async loadHTML() {
-        const request = await fetch("/blocks/projects/projects.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
-    }
-    connectedCallback() {
-        if (this._initialized) return;
-        this._initialized = true;
 
-        this.loadHTML().then(() => {
-            this._cleanupHoverBlur = initProjectHoverBlur(this.root);
-        });
+    getHTMLPath() {
+        return "/blocks/projects/projects.html"
     }
+    
+    async afterProcess() {
+        this._cleanupHoverBlur = initProjectHoverBlur(this.root);
+    }
+
     disconnectedCallback() {
         this._cleanupHoverBlur?.();
         this._cleanupHoverBlur = null;

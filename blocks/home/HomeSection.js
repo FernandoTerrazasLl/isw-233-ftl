@@ -1,26 +1,23 @@
-class HomeSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
-        async function loadCSS() {
-            const request = await fetch("/blocks/home/home.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+import BaseSection from "../shared/BaseSection.js";
+
+class HomeSection extends BaseSection {
+    getCSSPath() {
+        return "/blocks/home/home.css";
     }
-    async loadHTML() {
-        const request = await fetch("/blocks/home/home.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+
+    getHTMLPath() {
+        return "/blocks/home/home.html";
     }
-    connectedCallback() {
-        this.loadHTML();
+
+    async getTemplateData() {
+        return {
+            name: "Fernando Terrazas Llanos",
+            profession: "Software Engineering Student",
+            phrases: [
+                "If you can imagine it, you can program it",
+                "Transforming business ideas in digital systems",
+            ],
+        };
     }
 }
 

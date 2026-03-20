@@ -1,10 +1,7 @@
 <nav class="home__nav">
     <div class="home__nav-links">
-        <a href="/" class="home__nav-link">Home</a>
-        <a href="/about" class="home__nav-link">About me</a>
-        <a href="/projects" class="home__nav-link">Projects</a>
-        <a href="/abilities" class="home__nav-link">Abilities</a>
-        <a href="/education" class="home__nav-link">Education</a>
-        <a href="/blog" class="home__nav-link">Blog</a>
+        {{#each links}}
+            <a href="{{href}}" class="home__nav-link">{{label}}</a>
+        {{/each}}
     </div>
 </nav>

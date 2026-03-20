@@ -23,5 +23,8 @@
   "homepage": "https://github.com/FernandoTerrazasLl/Curriculum-CV--Paginas-Web-1#readme",
   "devDependencies": {
     "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
   }
 }

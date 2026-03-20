@@ -1,26 +1,47 @@
-class ContactSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
-        async function loadCSS() {
-            const request = await fetch("/blocks/contact-me/contact-me.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+import BaseSection from "../shared/BaseSection.js";
+
+class ContactSection extends BaseSection {
+    getCSSPath() {
+        return "/blocks/contact-me/contact-me.css";
     }
-    async loadHTML() {
-        const request = await fetch("/blocks/contact-me/contact-me.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+
+    getHTMLPath() {
+        return "/blocks/contact-me/contact-me.html";
     }
-    connectedCallback() {
-        this.loadHTML();
+
+    async getTemplateData() {
+        return {
+            title: "Contact Me",
+            fields: [
+                {
+                    wrapperClass: "contact-me__name",
+                    labelClass: "contact-me__name-title",
+                    inputClass: "contact-me__name-input",
+                    inputType: "text",
+                    label: "Full Name",
+                    placeholder: "Your Name",
+                },
+                {
+                    wrapperClass: "contact-me__email",
+                    labelClass: "contact-me__email-title",
+                    inputClass: "contact-me__email-input",
+                    inputType: "email",
+                    label: "Email",
+                    placeholder: "Your Email",
+                },
+                {
+                    wrapperClass: "contact-me__phone",
+                    labelClass: "contact-me__phone-title",
+                    inputClass: "contact-me__phone-input",
+                    inputType: "text",
+                    label: "Phone",
+                    placeholder: "Your Phone",
+                },
+            ],
+            messageLabel: "Message",
+            messagePlaceholder: "Your Message",
+            submitLabel: "Submit",
+        };
     }
 }
 

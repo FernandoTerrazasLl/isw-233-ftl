@@ -1,26 +1,53 @@
-class EducationSection extends HTMLElement {
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
-        async function loadCSS() {
-            const request = await fetch("/blocks/education/education.css");
-            const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+import BaseSection from "../shared/BaseSection.js";
+
+class EducationSection extends BaseSection {
+    getCSSPath() {
+        return "/blocks/education/education.css";
     }
-    async loadHTML() {
-        const request = await fetch("/blocks/education/education.html");
-        const html = await request.text();
-        const template = document.createElement("template");
-        template.innerHTML = html;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+
+    getHTMLPath() {
+        return "/blocks/education/education.html";
     }
-    connectedCallback() {
-        this.loadHTML();
+
+    async getTemplateData() {
+        return {
+            title: "Educations and Certifications",
+            educationLabel: "Education",
+            university: "Catholic Bolivian University",
+            role: "Software Engineer",
+            period: "2023-2028",
+            certificationsLabel: "Professional Certifications",
+            certifications: [
+                {
+                    title: "Harvard Aspire Institute Leadership",
+                    organization: "Aspire Institute",
+                    topic: "Leadership",
+                },
+                {
+                    title: "ISTQB Foundation Level",
+                    organization: "JB ENTERPRISE GROUP",
+                    topic: "Quality Assurance · Software Testing",
+                },
+                {
+                    title: "Computer Vision for Industrial Inspection",
+                    organization: "NVIDIA",
+                    topic: "AI · Computer Vision",
+                },
+                {
+                    title: "Oracle Next Education Back-end",
+                    organization: "Alura Latam",
+                    topic: "Java · Backend",
+                },
+                {
+                    title: "Lean Six Sigma White Belt Certification",
+                    organization: "Opex Online Academy",
+                    topic: "Agile Methodologies · Project Management",
+                },
+            ],
+            linkedinUrl: "https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/",
+            linkedinIcon: "/img/iconoLinkedinMin.png",
+            moreInfoLabel: "More information",
+        };
     }
 }
 
