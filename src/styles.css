@@ -1,13 +1,13 @@
-@import url(vendor/normalize.css);
+@import "./vendor/normalize.css";
 
-@import url(blocks/abilities/abilities.css);
-@import url(blocks/about/about.css);
-@import url(blocks/projects/projects.css);
-@import url(blocks/education/education.css);
-@import url(blocks/footer/footer.css);
-@import url(blocks/home/home.css);
-@import url(blocks/contact-me/contact-me.css);
-@import url(blocks/blog/blog.css);
+@import "./blocks/abilities/abilities.css";
+@import "./blocks/about/about.css";
+@import "./blocks/projects/projects.css";
+@import "./blocks/education/education.css";
+@import "./blocks/footer/footer.css";
+@import "./blocks/home/home.css";
+@import "./blocks/contact-me/contact-me.css";
+@import "./blocks/blog/blog.css";
 
 /*Esto cuenta como global? PREGUNTA*/
 body {
