@@ -1,20 +1,3 @@
-@import "./vendor/normalize.css";
-
-@import "./blocks/abilities/abilities.css";
-@import "./blocks/about/about.css";
-@import "./blocks/projects/projects.css";
-@import "./blocks/education/education.css";
-@import "./blocks/footer/footer.css";
-@import "./blocks/home/home.css";
-@import "./blocks/contact-me/contact-me.css";
-@import "./blocks/blog/blog.css";
-
-/*Esto cuenta como global? PREGUNTA*/
-body {
-    margin: 0;
-    padding: 0;
-}
-
-main {
+.main {
     margin-top: -5rem;
 }

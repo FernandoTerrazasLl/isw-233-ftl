@@ -1,0 +1,53 @@
+.abilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 5rem 5rem 5rem;
+    
+    background-image: url('/components/abilities/image/fondoTech.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+.abilities__title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color:#0249CC;
+}
+.abilities__column-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color:#0249CC;
+}
+.abilities__columns {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.abilities__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 32px;
+    padding:0 4rem 4rem 4rem;
+    background-color: #fff;
+}
+.abilities__icons {
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.abilities__icon {
+    width: 7rem;
+    height: 7rem;
+}

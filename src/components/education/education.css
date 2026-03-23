@@ -1,0 +1,92 @@
+.education {
+    padding: 5rem 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url('/components/education/image/fondoTech.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.education__title {
+    text-align: center;
+    font-size: 2.5rem;
+    color:#0249CC;
+}
+.education__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.education__group {
+}
+.education__group-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color:#0249CC
+}
+.education__group-info {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 32px;
+    width: 45%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.education__card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color:#0249CC;
+}
+.education__card-role {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+.education__card-period {
+    font-size: 1rem;
+    color: #666;
+}
+.education__certifications {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.education__certification-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 32px;
+    width: 45%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+}
+.education__card-org {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+.education__card-topic {
+    font-size: 1rem;
+    color: #666;
+}
+.education__more-btn {
+    background-color: #4983F0;
+    padding: 0.5rem 1rem;
+    border-radius: 32px;
+    width: 10rem;
+    margin-top: 2rem;
+}
+.education__more-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color:#fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.education__more-link-icon {
+    width: 2rem;
+    height: 2em;
+
+}

@@ -1,0 +1,26 @@
+<section class="home">
+    <div class="home__background">
+        <div class="home__intro">
+            <h1>{{name}}</h1>
+            <p class="home__profession">{{profession}}</p>
+            {{#each phrases}}
+                <p class="home__phrase">{{this}}</p>
+            {{/each}}
+        </div>
+        <div class="home__social-media">
+            <a href="https://github.com/FernandoTerrazasLl" class="home__social-link">
+                <img src="/components/home/image/iconoGithubMin.png" alt="GitHub icon">
+            </a>
+            <a href="https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/" class="home__social-link">
+                <img src="/components/home/image/iconoLinkedinMin.png" alt="LinkedIn icon">
+            </a>
+            <a href="mailto:terrazasllanosfernando@gmail.com" class="home__social-link">
+                <img src="/components/home/image/iconoMailMin.png" alt="Email icon">
+            </a>
+        </div>
+
+        <div class="home__contact">
+            <a class="home__contact-link" href="mailto:terrazasllanosfernando@gmail.com">Contact Me</a>
+        </div>
+    </div>
+</section>

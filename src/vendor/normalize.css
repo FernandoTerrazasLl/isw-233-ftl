@@ -1,1 +1,6 @@
 /*Librerias externas*/
+/*Esto cuenta como global? PREGUNTA*/
+body {
+    margin: 0;
+    padding: 0;
+}
