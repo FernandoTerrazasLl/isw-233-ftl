@@ -1172,9 +1172,6 @@ Se guardan en el Map (handlers.set(project, { onEnter, onLeave })).
 Luego, cuando quieras limpiar (por ejemplo en disconnectedCallback()), puedes recorrer handlers y hacer removeEventListener con las mismas funciones exactas que se habían registrado.
 Sin ese “registro”, no podrías eliminar correctamente los listeners porque no sabes qué función concreta se pasó al addEventListener.
 
-
-
-
 ## Justificacion
 
 ### Mutation Observer
@@ -1201,6 +1198,10 @@ Se implemento en proyecto section
 Agrega una funcionalidad de animacion a los proyectos para anadirle movimiento y UI
 
 Usar resize observer ayuda a poder anadirle animacion a los proyectos. Si en un futuro quisiera anadirle otra funcionalidad al pasar el mouse sobre un proyecto entonces seria mas sencillo.
+
+### TEMPLATE METHOD
+
+Ahora se implemento template method para los web-components. Generalizando acciones que se realizaban repetidamente y permitiendo ampliacion de procesos en caso de que sea necesario. Funciona para desacoplat codigo y reutilizadlo
 
 ## Autor
 
