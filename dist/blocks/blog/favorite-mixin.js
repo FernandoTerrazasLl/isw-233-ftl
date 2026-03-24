@@ -1,0 +1,1 @@
+import Storage from"../../services/Storage.js";const favoriteMixin={attachFavoriteHandlers(e=document,t=".blog__container"){const o=e.querySelector(t);o&&o.querySelectorAll(".blog__favorite").forEach(e=>{e.addEventListener("click",()=>{const t=Number(e.dataset.id),o=Storage.toggleFavorite(t);e.textContent=o?"★":"☆"})})}};export{favoriteMixin};

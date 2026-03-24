@@ -1,0 +1,22 @@
+[
+    {
+    "id": 1,
+    "title": "SEO in small and medium Business Projects",
+    "image": "img/blogSEO.png",
+    "category": "projects"
+    },
+
+    {
+    "id": 2,
+    "title": "The Origin of Linux and its versions",
+    "image": "img/blogLinux.png",
+    "category": "linux"
+    },
+
+    {
+        "id": 3,
+        "title": "Medium projects to add to your Repository",
+        "image": "img/blogProjectIdeas.png",
+        "category": "projects"
+    }
+]

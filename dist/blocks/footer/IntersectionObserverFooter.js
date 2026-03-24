@@ -1,0 +1,1 @@
+export function observeMainIntersection({onIntersect:e,threshold:n=.9,rootMargin:t="0px"}={}){const o=document.querySelector("main");if(!o)return null;const r=new IntersectionObserver((t,o)=>{const r=t[0];r&&r.intersectionRatio>=n&&(o.disconnect(),e?.())},{root:null,threshold:n,rootMargin:"0px"});return r.observe(o),r}

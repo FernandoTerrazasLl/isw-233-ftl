@@ -1,0 +1,1 @@
+class CategorySubject{constructor(){this.observers=new Set}addObserver(e){this.observers.add(e)}removeObserver(e){this.observers.delete(e)}notifyObservers(e){this.observers.forEach(r=>r(e))}}export const categorySubject=new CategorySubject;
