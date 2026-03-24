@@ -22,7 +22,7 @@ import "./components/contact-me/contact-me.css";
 import "./components/blog/blog.css";
 
 async function registerPartials() {
-    const partials = ["section-header", "project-card", "page-footer"];
+    const partials = ["section-title", "social-link-item", "icon-text-link"];
     await Promise.all(
         partials.map(async (partial) => {
             const res = await fetch(`/partials/${partial}.hbs`);

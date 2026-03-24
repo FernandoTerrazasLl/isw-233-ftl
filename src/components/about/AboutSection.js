@@ -12,8 +12,8 @@ class AboutSection extends BaseSection {
     async getTemplateData() {
         return {
             title: "About Me",
-            profilePhoto: "/components/about/image/imagenFernando.png",
-            backgroundImage: "/components/about/image/aboutMeFondoDePersona.png",
+            profilePhoto: "/components/about/__image/imagenFernando.png",
+            backgroundImage: "/components/about/__image/aboutMeFondoDePersona.png",
             profileName: "Fernando Terrazas Llanos",
             profileRole: "Aspiring Backend Developer Engineer",
             description:

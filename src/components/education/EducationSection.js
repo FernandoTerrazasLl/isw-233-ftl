@@ -45,7 +45,7 @@ class EducationSection extends BaseSection {
                 },
             ],
             linkedinUrl: "https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/",
-            linkedinIcon: "/components/education/image/iconoLinkedinMin.png",
+            linkedinIcon: "/components/education/__image/iconoLinkedinMin.png",
             moreInfoLabel: "More information",
         };
     }

@@ -1,5 +1,5 @@
 <section class="contact-me">
-    <h2 class="contact-me__title">{{title}}</h2>
+    {{> section-title className="contact-me__title" text=title}}
     <form class="contact-me__form">
         {{#each fields}}
             <div class="{{wrapperClass}}">

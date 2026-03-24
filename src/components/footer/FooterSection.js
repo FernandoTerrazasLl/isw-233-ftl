@@ -28,17 +28,17 @@ class FooterSection extends HTMLElement {
             socialLinks: [
                 {
                     href: "https://github.com/FernandoTerrazasLl",
-                    icon: "/components/footer/image/iconoGithubMin.png",
+                    icon: "/components/footer/__image/iconoGithubMin.png",
                     alt: "GitHub icon",
                 },
                 {
                     href: "https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/",
-                    icon: "/components/footer/image/iconoLinkedinMin.png",
+                    icon: "/components/footer/__image/iconoLinkedinMin.png",
                     alt: "LinkedIn icon",
                 },
                 {
                     href: "mailto:terrazasllanosfernando@gmail.com",
-                    icon: "/components/footer/image/iconoMailMin.png",
+                    icon: "/components/footer/__image/iconoMailMin.png",
                     alt: "Email icon",
                 },
             ],

@@ -1,7 +1,7 @@
 .home {
     display: flex;
     flex-direction: column;
-    background-image: url("/components/home/image/imagenHome.png"); /*OJO CON ESTO*/
+    background-image: url("/components/home/__image/imagenHome.png"); /*OJO CON ESTO*/
     height: 100vh;
     box-sizing: border-box;
     padding-top: 5rem;

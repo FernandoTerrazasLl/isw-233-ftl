@@ -1,5 +1,5 @@
 <section class="education">
-    <h2 class="education__title">{{title}}</h2>
+    {{> section-title className="education__title" text=title}}
 
     <div class="education__container">
         <div class="education__group">
@@ -27,9 +27,13 @@
     </div>
 
     <div class="education__more-btn">
-        <a href="{{linkedinUrl}}" class="education__more-link">
-            <img src="{{linkedinIcon}}" alt="LinkedIn icon" class="education__more-link-icon">
-            {{moreInfoLabel}}
-        </a>
+        {{> icon-text-link
+            href=linkedinUrl
+            linkClass="education__more-link"
+            iconSrc=linkedinIcon
+            iconAlt="LinkedIn icon"
+            iconClass="education__more-link-icon"
+            label=moreInfoLabel
+        }}
     </div>
 </section>

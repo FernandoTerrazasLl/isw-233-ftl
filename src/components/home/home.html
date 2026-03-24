@@ -8,15 +8,14 @@
             {{/each}}
         </div>
         <div class="home__social-media">
-            <a href="https://github.com/FernandoTerrazasLl" class="home__social-link">
-                <img src="/components/home/image/iconoGithubMin.png" alt="GitHub icon">
-            </a>
-            <a href="https://www.linkedin.com/in/fernando-terrazas-llanos-960560267/" class="home__social-link">
-                <img src="/components/home/image/iconoLinkedinMin.png" alt="LinkedIn icon">
-            </a>
-            <a href="mailto:terrazasllanosfernando@gmail.com" class="home__social-link">
-                <img src="/components/home/image/iconoMailMin.png" alt="Email icon">
-            </a>
+            {{#each socialLinks}}
+                {{> social-link-item
+                    href=href
+                    linkClass="home__social-link"
+                    iconSrc=iconSrc
+                    iconAlt=iconAlt
+                }}
+            {{/each}}
         </div>
 
         <div class="home__contact">

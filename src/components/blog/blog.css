@@ -1,5 +1,5 @@
 .blog{
-    background-image: url("/components/blog/image/fondoTech.png");
+    background-image: url("/components/blog/__image/fondoTech.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

@@ -4,9 +4,12 @@
         <p class="footer__role">{{role}}</p>
         <div class="footer__social-media">
             {{#each socialLinks}}
-                <a href="{{href}}" class="footer__social-link">
-                    <img src="{{icon}}" alt="{{alt}}">
-                </a>
+                {{> social-link-item
+                    href=href
+                    linkClass="footer__social-link"
+                    iconSrc=icon
+                    iconAlt=alt
+                }}
             {{/each}}
         </div>
         <p class="footer__copyright">{{copyright}}</p>

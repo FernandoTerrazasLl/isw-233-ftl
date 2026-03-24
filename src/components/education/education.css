@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     
-    background-image: url('/components/education/image/fondoTech.png');
+    background-image: url('/components/education/__image/fondoTech.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

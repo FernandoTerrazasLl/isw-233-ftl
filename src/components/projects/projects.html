@@ -1,5 +1,5 @@
 <section class="projects">
-    <h2 class="projects__title">{{title}}</h2>
+    {{> section-title className="projects__title" text=title}}
     <p class="projects__subtitle">{{subtitle}}</p>
 
     <div class="projects__container">
@@ -8,18 +8,26 @@
                 <img src="{{image}}" alt="{{imageAlt}}" class="projects__project-image">
                 <div class="projects__project-info">
                     <h4 class="projects__project-title">{{title}}</h4>
-                    <a href="{{url}}" class="projects__project-link">
-                        <img src="{{repositoryIcon}}" alt="GitHub icon" class="projects__project-link-icon"> {{../repositoryLabel}}
-                    </a>
+                    {{> icon-text-link
+                        href=url
+                        linkClass="projects__project-link"
+                        iconSrc=repositoryIcon
+                        iconAlt="GitHub icon"
+                        iconClass="projects__project-link-icon"
+                        label=../repositoryLabel
+                    }}
                 </div>
             </div>
         {{/each}}
     </div>
 
-    <a href="{{moreProjectsUrl}}" class="projects__more-link">
-        <div class="projects__more-btn">
-            <img src="{{moreProjectsIcon}}" alt="GitHub icon" class="projects__github-more-btn">
-            {{moreProjectsLabel}}
-        </div>
-    </a>
+    {{> icon-text-link
+        href=moreProjectsUrl
+        linkClass="projects__more-link"
+        innerWrapperClass="projects__more-btn"
+        iconSrc=moreProjectsIcon
+        iconAlt="GitHub icon"
+        iconClass="projects__github-more-btn"
+        label=moreProjectsLabel
+    }}
 </section>
