@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint src eslint.config.mjs vite.config.js postcss.config.js",
+    "lint:js": "eslint src eslint.config.mjs vite.config.ts postcss.config.js",
     "lint:css": "stylelint \"src/**/*.css\""
   },
   "repository": {

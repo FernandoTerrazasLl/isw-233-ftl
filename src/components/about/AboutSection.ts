@@ -1,15 +1,24 @@
-import BaseSection from "../shared/BaseSection.js";
+import BaseSection from "../shared/BaseSection";
 
-class AboutSection extends BaseSection {
-    getCSSPath() {
+type AboutTemplateData = {
+    title: string;
+    profilePhoto: string;
+    backgroundImage: string;
+    profileName: string;
+    profileRole: string;
+    description: string;
+};
+
+class AboutSection extends BaseSection<AboutTemplateData> {
+    protected getCSSPath(): string {
         return "/components/about/about.css";
     }
 
-    getHTMLPath() {
+    protected getHTMLPath(): string {
         return "/components/about/about.html";
     }
 
-    async getTemplateData() {
+    protected async getTemplateData(): Promise<AboutTemplateData> {
         return {
             title: "About Me",
             profilePhoto: "/components/about/__image/imagenFernando.png",

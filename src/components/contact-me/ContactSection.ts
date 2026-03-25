@@ -1,15 +1,32 @@
-import BaseSection from "../shared/BaseSection.js";
+import BaseSection from "../shared/BaseSection";
 
-class ContactSection extends BaseSection {
-    getCSSPath() {
+type ContactField = {
+    wrapperClass: string;
+    labelClass: string;
+    inputClass: string;
+    inputType: string;
+    label: string;
+    placeholder: string;
+};
+
+type ContactTemplateData = {
+    title: string;
+    fields: ContactField[];
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitLabel: string;
+};
+
+class ContactSection extends BaseSection<ContactTemplateData> {
+    protected getCSSPath(): string {
         return "/components/contact-me/contact-me.css";
     }
 
-    getHTMLPath() {
+    protected getHTMLPath(): string {
         return "/components/contact-me/contact-me.html";
     }
 
-    async getTemplateData() {
+    protected async getTemplateData(): Promise<ContactTemplateData> {
         return {
             title: "Contact Me",
             fields: [

@@ -1,4 +1,14 @@
-export function observeMainIntersection({ onIntersect, threshold = 0.1, rootMargin = "0px 0px 200px 0px" } = {}) {
+type ObserveMainIntersectionOptions = {
+  onIntersect?: () => void;
+  threshold?: number;
+  rootMargin?: string;
+};
+
+export function observeMainIntersection({
+  onIntersect,
+  threshold = 0.1,
+  rootMargin = "0px 0px 200px 0px",
+}: ObserveMainIntersectionOptions = {}): IntersectionObserver | null {
   const main = document.querySelector("main");
   if (!main) return null;
 

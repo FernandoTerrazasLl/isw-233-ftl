@@ -1,15 +1,28 @@
-import BaseSection from "../shared/BaseSection.js";
+import BaseSection from "../shared/BaseSection";
 
-class HomeSection extends BaseSection {
-    getCSSPath() {
+type SocialLink = {
+    href: string;
+    iconSrc: string;
+    iconAlt: string;
+};
+
+type HomeTemplateData = {
+    name: string;
+    profession: string;
+    phrases: string[];
+    socialLinks: SocialLink[];
+};
+
+class HomeSection extends BaseSection<HomeTemplateData> {
+    protected getCSSPath(): string {
         return "/components/home/home.css";
     }
 
-    getHTMLPath() {
+    protected getHTMLPath(): string {
         return "/components/home/home.html";
     }
 
-    async getTemplateData() {
+    protected async getTemplateData(): Promise<HomeTemplateData> {
         return {
             name: "Fernando Terrazas Llanos",
             profession: "Software Engineering Student",

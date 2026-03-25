@@ -1,15 +1,34 @@
-import BaseSection from "../shared/BaseSection.js";
+import BaseSection from "../shared/BaseSection";
 
-class EducationSection extends BaseSection {
-    getCSSPath() {
+type Certification = {
+    title: string;
+    organization: string;
+    topic: string;
+};
+
+type EducationTemplateData = {
+    title: string;
+    educationLabel: string;
+    university: string;
+    role: string;
+    period: string;
+    certificationsLabel: string;
+    certifications: Certification[];
+    linkedinUrl: string;
+    linkedinIcon: string;
+    moreInfoLabel: string;
+};
+
+class EducationSection extends BaseSection<EducationTemplateData> {
+    protected getCSSPath(): string {
         return "/components/education/education.css";
     }
 
-    getHTMLPath() {
+    protected getHTMLPath(): string {
         return "/components/education/education.html";
     }
 
-    async getTemplateData() {
+    protected async getTemplateData(): Promise<EducationTemplateData> {
         return {
             title: "Educations and Certifications",
             educationLabel: "Education",

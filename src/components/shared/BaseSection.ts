@@ -1,16 +1,13 @@
 import Handlebars from "handlebars";
 
-type BaseSectionOptions = {
-    shadowMode?: ShadowRootMode;
-};
-
 abstract class BaseSection<TData extends Record<string, unknown> = Record<string, unknown>> extends HTMLElement {
     protected readonly root: ShadowRoot;
     private initialized: boolean;
     private readonly stylesNode: HTMLStyleElement;
 
-    constructor({ shadowMode = "open" }: BaseSectionOptions = {}) {
+    constructor() {
         super();
+        const shadowMode: ShadowRootMode = "open";
         this.root = this.attachShadow({ mode: shadowMode });
         this.initialized = false;
         this.stylesNode = document.createElement("style");
@@ -21,7 +18,7 @@ abstract class BaseSection<TData extends Record<string, unknown> = Record<string
         if (this.initialized) return;
         this.initialized = true;
 
-        void this.process();
+        this.process();
     }
 
     private async process(): Promise<void> {

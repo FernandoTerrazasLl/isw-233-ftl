@@ -1,8 +1,28 @@
-import BaseSection from "../shared/BaseSection.js";
-import { initProjectHoverBlur } from "./ResizeObserverAnimation.js";
+import BaseSection from "../shared/BaseSection";
+import { initProjectHoverBlur } from "./ResizeObserverAnimation";
 
-class ProjectsSection extends BaseSection {
-    async getTemplateData() {
+type ProjectCard = {
+    image: string;
+    imageAlt: string;
+    title: string;
+    url: string;
+    repositoryIcon: string;
+};
+
+type ProjectsTemplateData = {
+    title: string;
+    subtitle: string;
+    repositoryLabel: string;
+    moreProjectsUrl: string;
+    moreProjectsLabel: string;
+    moreProjectsIcon: string;
+    projects: ProjectCard[];
+};
+
+class ProjectsSection extends BaseSection<ProjectsTemplateData> {
+    private cleanupHoverBlur: (() => void) | null = null;
+
+    protected async getTemplateData(): Promise<ProjectsTemplateData> {
         return {
             title: "Featured Projects",
             subtitle: "Projects that showcase my technical and creative skills.",
@@ -36,21 +56,21 @@ class ProjectsSection extends BaseSection {
         };
     }
 
-    getCSSPath() {
-        return "/components/projects/projects.css"
+    protected getCSSPath(): string {
+        return "/components/projects/projects.css";
     }
 
-    getHTMLPath() {
-        return "/components/projects/projects.html"
-    }
-    
-    async afterProcess() {
-        this._cleanupHoverBlur = initProjectHoverBlur(this.root);
+    protected getHTMLPath(): string {
+        return "/components/projects/projects.html";
     }
 
-    disconnectedCallback() {
-        this._cleanupHoverBlur?.();
-        this._cleanupHoverBlur = null;
+    protected async afterProcess(): Promise<void> {
+        this.cleanupHoverBlur = initProjectHoverBlur(this.root);
+    }
+
+    disconnectedCallback(): void {
+        this.cleanupHoverBlur?.();
+        this.cleanupHoverBlur = null;
     }
 }
 

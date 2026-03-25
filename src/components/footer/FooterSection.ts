@@ -1,28 +1,50 @@
-import { observeMainIntersection } from "./IntersectionObserverFooter.js";
+import { observeMainIntersection } from "./IntersectionObserverFooter";
 import Handlebars from "handlebars";
 
+type FooterSocialLink = {
+    href: string;
+    icon: string;
+    alt: string;
+};
+
+type FooterTemplateData = {
+    name: string;
+    role: string;
+    socialLinks: FooterSocialLink[];
+    copyright: string;
+};
+
 class FooterSection extends HTMLElement {
+    private readonly root: ShadowRoot;
+    private loaded: boolean;
+    private readonly stylesNode: HTMLStyleElement;
+    private readonly loadCSSFn: () => Promise<void>;
+    private intersectionObserver: IntersectionObserver | null;
+
     constructor() {
         super();
         this.root = this.attachShadow({ mode: "open" });
-        this._loaded = false;
-        this._styles = document.createElement("style");
-        this.root.appendChild(this._styles);
+        this.loaded = false;
+        this.stylesNode = document.createElement("style");
+        this.root.appendChild(this.stylesNode);
+        this.intersectionObserver = null;
 
-        async function loadCSS() {
+        const loadCSS = async () => {
             const request = await fetch("/components/footer/footer.css", {
                 headers: { Accept: "text/css" },
             });
             const css = await request.text();
-            this._styles.textContent = css;
-        }
-        this._loadCSS = loadCSS.bind(this);
+            this.stylesNode.textContent = css;
+        };
+
+        this.loadCSSFn = loadCSS;
     }
-    async loadHTML() {
+
+    async loadHTML(): Promise<void> {
         const request = await fetch("/components/footer/footer.html");
         const templateSource = await request.text();
 
-        const footerData = {
+        const footerData: FooterTemplateData = {
             name: "Fernando Terrazas Llanos",
             role: "Aspiring Backend Engineer",
             socialLinks: [
@@ -50,30 +72,31 @@ class FooterSection extends HTMLElement {
 
         const template = document.createElement("template");
         template.innerHTML = rendered;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+        this.root.appendChild(template.content.cloneNode(true));
     }
-    connectedCallback() {
-        this._intersectionObserver = observeMainIntersection({
+
+    connectedCallback(): void {
+        this.intersectionObserver = observeMainIntersection({
             threshold: 0.1,
             rootMargin: "0px 0px 200px 0px",
             onIntersect: () => this._load(),
         });
 
-        if (!this._intersectionObserver) {
-            this._load();
+        if (!this.intersectionObserver) {
+            void this._load();
         }
     }
 
-    disconnectedCallback() {
-        this._intersectionObserver?.disconnect();
+    disconnectedCallback(): void {
+        this.intersectionObserver?.disconnect();
+        this.intersectionObserver = null;
     }
 
-    async _load() {
-        if (this._loaded) return;
-        this._loaded = true;
+    private async _load(): Promise<void> {
+        if (this.loaded) return;
+        this.loaded = true;
 
-        await this._loadCSS();
+        await this.loadCSSFn();
         await this.loadHTML();
     }
 }

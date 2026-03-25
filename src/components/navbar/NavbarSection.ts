@@ -1,27 +1,42 @@
 import Handlebars from "handlebars";
 
+type NavbarLink = {
+    href: string;
+    label: string;
+};
+
+type NavbarTemplateData = {
+    links: NavbarLink[];
+};
+
 class NavbarSection extends HTMLElement {
+    private readonly root: ShadowRoot;
+    private readonly stylesNode: HTMLStyleElement;
+    private observer: MutationObserver | null;
+
     constructor() {
         super();
         this.root = this.attachShadow({ mode: "open" });
-        const styles = document.createElement("style");
-        this.root.appendChild(styles);
+        this.stylesNode = document.createElement("style");
+        this.root.appendChild(this.stylesNode);
+        this.observer = null;
 
-        async function loadCSS() {
+        const loadCSS = async () => {
             const request = await fetch("/components/navbar/navbar.css", {
                 headers: { Accept: "text/css" },
             });
             const css = await request.text();
-            styles.textContent = css;
-        }
-        loadCSS();
+            this.stylesNode.textContent = css;
+        };
+
+        void loadCSS();
     }
 
-    async loadHTML() {
+    async loadHTML(): Promise<void> {
         const request = await fetch("/components/navbar/navbar.html");
         const templateSource = await request.text();
 
-        const navbarData = {
+        const navbarData: NavbarTemplateData = {
             links: [
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About me" },
@@ -38,12 +53,11 @@ class NavbarSection extends HTMLElement {
 
         const template = document.createElement("template");
         template.innerHTML = rendered;
-        const content = template.content.cloneNode(true);
-        this.root.appendChild(content);
+        this.root.appendChild(template.content.cloneNode(true));
     }
 
-    connectedCallback() {
-        this.loadHTML().then(() => {
+    connectedCallback(): void {
+        void this.loadHTML().then(() => {
             this._updateLinkColors(document.body.dataset.route || "/");
         });
 
@@ -56,16 +70,18 @@ class NavbarSection extends HTMLElement {
         });
 
         observer.observe(document.body, { attributes: true });
-        this._observer = observer;
+        this.observer = observer;
     }
 
-    disconnectedCallback() {
-        this._observer?.disconnect();
+    disconnectedCallback(): void {
+        this.observer?.disconnect();
+        this.observer = null;
     }
 
-    _updateLinkColors(route) {
-        const links = this.root.querySelectorAll(".home__nav-link");
+    private _updateLinkColors(route: string): void {
+        const links = this.root.querySelectorAll<HTMLElement>(".home__nav-link");
         const color = route === "/" ? "#fff" : "rgb(73, 131, 240)";
+
         links.forEach((link) => {
             link.style.color = color;
         });

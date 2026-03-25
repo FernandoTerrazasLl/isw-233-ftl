@@ -1,15 +1,30 @@
-import BaseSection from "../shared/BaseSection.js";
+import BaseSection from "../shared/BaseSection";
 
-class AbilitiesSection extends BaseSection {
-    getCSSPath() {
+type AbilityIcon = {
+    src: string;
+    alt: string;
+};
+
+type AbilityColumn = {
+    title: string;
+    icons: AbilityIcon[];
+};
+
+type AbilitiesTemplateData = {
+    title: string;
+    columns: AbilityColumn[];
+};
+
+class AbilitiesSection extends BaseSection<AbilitiesTemplateData> {
+    protected getCSSPath(): string {
         return "/components/abilities/abilities.css";
     }
 
-    getHTMLPath() {
+    protected getHTMLPath(): string {
         return "/components/abilities/abilities.html";
     }
 
-    async getTemplateData() {
+    protected async getTemplateData(): Promise<AbilitiesTemplateData> {
         return {
             title: "Technical Abilities",
             columns: [

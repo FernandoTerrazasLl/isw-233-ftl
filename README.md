@@ -1193,7 +1193,7 @@ Es mejor usar esta implementacion debido a que en un futuro las secciones se com
 
 ### Resize Observer
 
-Se implemento en proyecto section PRUEBA
+Se implemento en proyecto section
 
 Agrega una funcionalidad de animacion a los proyectos para anadirle movimiento y UI
 

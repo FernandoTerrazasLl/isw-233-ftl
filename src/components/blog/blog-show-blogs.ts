@@ -1,12 +1,15 @@
-import Storage from "../../services/Storage.js";
-import { favoriteMixin } from "./favorite-mixin.js";
-import { categorySubject } from "./category-subject.js";
+import Storage from "../../services/Storage";
+import { attachFavoriteHandlers } from "./favorite-mixin";
+import { categorySubject } from "./category-subject";
+import type { BlogPost } from "./types";
 
-let blogsList = [];
-let currentCategory = null;
-let currentRoot = document;
+type RootNode = Document | ShadowRoot;
 
-const applyCategoryFilter = (category) => {
+let blogsList: BlogPost[] = [];
+let currentCategory: string | null = null;
+let currentRoot: RootNode = document;
+
+const applyCategoryFilter = (category: string | null): void => {
     currentCategory = category || null;
     const filtered = currentCategory
         ? blogsList.filter((post) => post.category === currentCategory)
@@ -16,8 +19,8 @@ const applyCategoryFilter = (category) => {
 };
 
 class BlogRenderer {
-    render(blogs, rootNode = document) {
-        const container = rootNode.querySelector(".blog__container");
+    render(blogs: BlogPost[], rootNode: RootNode = document): void {
+        const container = rootNode.querySelector<HTMLElement>(".blog__container");
         if (!container) return;
 
         container.innerHTML = blogs
@@ -39,19 +42,18 @@ class BlogRenderer {
             })
             .join("\n");
 
-        this.attachFavoriteHandlers(rootNode); // mixin
+        attachFavoriteHandlers(rootNode);
     }
 }
-Object.assign(BlogRenderer.prototype, favoriteMixin);
 
 const renderer = new BlogRenderer();
 
-export const init_blogs = async (rootNode = document) => {
+export const init_blogs = async (rootNode: RootNode = document): Promise<void> => {
     currentRoot = rootNode;
 
     if (!blogsList.length) {
         const res = await fetch("/data/blogs.json");
-        blogsList = await res.json();
+        blogsList = (await res.json()) as BlogPost[];
     }
 
     categorySubject.addObserver(applyCategoryFilter);
